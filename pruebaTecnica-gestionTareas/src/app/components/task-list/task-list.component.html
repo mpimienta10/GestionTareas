@@ -1,0 +1,18 @@
+<!-- Filtro para seleccionar qué tareas mostrar -->
+<div>
+    <button mat-button (click)="setFilter('all')" [class.active]="filter === 'all'">Todas</button>
+    <button mat-button (click)="setFilter('pending')" [class.active]="filter === 'pending'">Pendientes</button>
+    <button mat-button (click)="setFilter('completed')" [class.active]="filter === 'completed'">Completadas</button>
+</div>
+  
+  <!-- Lista de tareas filtradas -->
+<mat-list>
+    <mat-list-item *ngFor="let task of tasks$ | async">
+      <mat-checkbox [checked]="task.completado" (change)="toggleTaskCompletion(task.id)">
+        {{ task.nombre }}
+      </mat-checkbox>
+      <button mat-icon-button color="warn" (click)="deleteTask(task.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>

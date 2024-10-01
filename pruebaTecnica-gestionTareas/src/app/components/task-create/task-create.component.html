@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-title>Crear Nueva Tarea</mat-card-title>
+    <mat-card-content>
+        <mat-form-field>
+          <mat-label>Nombre de la tarea</mat-label>
+          <input matInput [(ngModel)]="newTaskTitle" name="newTaskTitle" required />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addTask()">Agregar Tarea</button>
+    </mat-card-content>
+</mat-card>
